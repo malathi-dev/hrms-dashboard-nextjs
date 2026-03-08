@@ -1,0 +1,323 @@
+/* global background for HRMS dashboard */
+body {
+  background: #f4f6f9;
+  color: #2c3e50;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px; /* updated width per layout spec */
+  background: linear-gradient(180deg, #1f2d3d 0%, #16313b 100%); /* dark blue/teal gradient */
+  color: #fff;
+  overflow-y: auto;
+  z-index: 1020;
+}  
+.sidebar a {
+  color: #ddd;
+}
+.sidebar a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* active sidebar link color match screenshot teal */
+.sidebar .nav-link.active,
+.sidebar .nav-link.active:hover {
+  background-color: #00c0ef;
+  color: #fff;
+}
+
+/* Card glow effect */
+.card-hover:hover {
+  box-shadow: 0 0 15px rgba(106,13,173,0.7);
+  transform: translateY(-2px);
+}
+
+/* ensure consistent spacing between cards */
+.card {
+  margin-bottom: 1rem;
+}
+
+/* Navbar dropdown, etc */
+.navbar {
+  background-color: #2c3e50; /* dark background */
+
+}
+
+/* make toggler icon white */
+.navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* branding tweaks */
+.navbar .navbar-brand {
+  font-weight: 600;
+}
+.navbar .navbar-brand small {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* Table dark */
+.table-dark {
+  color: #fff;
+}
+
+/* basic spacing helpers */
+.container {
+  padding: 0 1rem;
+  max-width: 100% !important; /* override bootstrap's fixed max-width */
+}
+
+/* make cards full width on small screens */
+@media (max-width: 576px) {
+  .card-hover,
+  .card {
+    width: 100%;
+  }
+}
+
+/* responsive sidebar behaviour */
+.sidebar {
+  /* width handled above as 250px; keep transition for animations */
+  transition: transform 0.3s ease;
+}
+
+/* legacy mobile sidebar rules removed; new layout below handles off-canvas behavior */
+
+/* adjust main content when sidebar is visible on larger screens */
+/* legacy main-content rules removed as new layout uses .main and .content classes */
+
+/* simple global form styles */
+form .form-control,
+form .form-select {
+  min-width: 0;
+}
+
+/* improve header/nav spacing */
+.navbar {
+  padding: 0.5rem 1rem;
+}
+
+/* profile picture in navbar */
+.navbar .profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+/* search input look in dark navbar */
+.navbar .form-control::placeholder {
+  color: #ccc;
+}
+
+.navbar .form-control:focus {
+  box-shadow: none;
+}
+
+/* adjust brand color to match screenshot */
+.navbar .navbar-brand {
+  color: #4fc08d !important;
+}
+
+/* new layout structure - strict HRMS admin dashboard */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* statistics card used on attendance dashboard */
+.stat-card {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.stat-card .circle {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 0.5rem;
+  position: relative;
+}
+.stat-card .circle svg {
+  transform: rotate(-90deg);
+}
+.stat-card .circle .number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* feed list styles */
+.feed-list {
+  max-height: 500px;
+  overflow-y: auto;
+}
+.feed-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background: #ffffff;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+.feed-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.75rem;
+}
+
+/* user card for bottom section */
+.user-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.user-card img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.75rem;
+}
+
+/* legend style used under charts */
+.chart-legend {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.chart-legend span {
+  display: inline-block;
+  margin: 0 0.5rem;
+  font-size: 0.9rem;
+}
+.chart-legend .box {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 3px;
+  border-radius: 2px;
+}
+
+/* page header for attendance dashboard */
+.page-header h2 {
+  margin-bottom: 0.25rem;
+}
+.page-header small {
+  font-size: 0.85rem;
+}
+
+/* content text contrast fixes: avoid white-on-white inside cards / forms */
+.content,
+.content *,
+.card,
+.card *,
+.form-control,
+.form-select,
+.table,
+.table * {
+  color: #212529 !important; /* Bootstrap text-dark */
+}
+
+/* keep sidebar/topbar text white */
+.sidebar *, .topbar * {
+  color: #fff !important;
+}
+
+/* main area sits to the right of fixed sidebar */
+.main {
+  flex: 1;
+  margin-left: 250px;
+}
+
+/* topbar (navbar) fixed at top of main area */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 250px;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1e1e2f;
+  z-index: 1001;
+}
+
+/* content area under topbar and beside sidebar */
+.content {
+  margin-left: 250px;
+  margin-top: 60px;
+  padding: 20px;
+  background: #f4f6f9;
+  min-height: calc(100vh - 60px);
+}
+
+/* mobile adjustments: sidebar hidden off-canvas, main content fills screen */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-250px);
+    width: 250px; /* fixed width still, but off-canvas */
+  }
+  .sidebar.show {
+    transform: translateX(0);
+  }
+  .main {
+    margin-left: 0;
+  }
+  .topbar {
+    left: 0;
+  }
+  .content {
+    margin-left: 0;
+  }
+}
+
+/* chart container styling */
+.chart-card {
+  background: rgba(0,0,0,0.05);
+  padding: 1rem;
+  border-radius: 6px;
+  height: 420px;
+}
+
+@media (max-width: 768px) {
+  .chart-card {
+    height: 320px;
+  }
+}
+
+.chart-card canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* dropdown menu should appear above sidebar */
+.dropdown-menu {
+  z-index: 2000;
+}
+
+/* ensure dropdown list items do not show bullets */
+.dropdown-menu li {
+  list-style: none;
+}
+
+/* mobile-friendly adjustments for tables */
+.table-responsive {
+  overflow-x: auto;
+}

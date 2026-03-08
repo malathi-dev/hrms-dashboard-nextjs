@@ -1,0 +1,311 @@
+@use "@coreui/coreui/scss/coreui" as * with (
+  $enable-deprecation-messages: false
+);
+@use "vendors/simplebar";
+
+body {
+  background-color: var(--cui-tertiary-bg);
+}
+// mine like i did changes on add on =============
+
+[data-coreui-theme="dark"] {
+  --cui-body-bg: #121212;
+  --cui-body-color: #ffffff;
+  background-color: #121212 !important;
+  color: white !important;
+}
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1030; // higher than sidebar
+  background: var(--cui-body-bg);
+  width:100%
+}
+
+.sidebar {
+  z-index: 1020;
+}
+.main {
+  overflow: visible !important;
+}
+
+.layout {
+  overflow: visible !important;
+}
+
+.dropdown-menu {
+  z-index: 2000 !important;
+  position: absolute !important;
+}
+
+.attendance-page {
+  padding: 20px;
+}
+
+.feed-scroll {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+/* 🔥 DASHBOARD FIXES ONLY */
+
+.dashboard-page {
+  padding: 10px 5px;
+}
+
+.dashboard-breadcrumb {
+  font-size: 13px;
+  color: gray;
+  margin-bottom: 5px;
+}
+
+.dashboard-header h3 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.dashboard-card {
+  color: white;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.dashboard-card h6 {
+  opacity: 0.9;
+}
+
+.dashboard-card h3 {
+  font-weight: 700;
+}
+
+/* Blue */
+.card-blue {
+  background: linear-gradient(135deg, #4e73df, #224abe);
+}
+
+/* Green */
+.card-green {
+  background: linear-gradient(135deg, #1cc88a, #0f9d6e);
+}
+
+/* Yellow */
+.card-yellow {
+  background: linear-gradient(135deg, #f6c23e, #dda20a);
+}
+
+/* Purple */
+.card-purple {
+  background: linear-gradient(135deg, #8e7cc3, #6a5acd);
+}
+
+  .icon {
+    font-size: 26px;
+    opacity: 0.8;
+  }
+
+  .progress {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+.dashboard-box {
+  border-radius: 10px;
+
+  .card-header {
+    font-weight: 600;
+    background: transparent;
+  }
+
+  .progress {
+    height: 6px;
+  }
+}
+.modal {
+  background: rgba(0,0,0,0.5);
+}
+
+.dashboard-card::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+}
+//==================pie chart style ================
+.graph-card {
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+
+  /* NEW GRADIENT (different from cards) */
+  background: linear-gradient(135deg, hsl(92, 60%, 71%), #a5f14d);
+
+}
+.graph-card ::after {
+   content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+
+}
+
+
+.chart-card {
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+
+  /* NEW GRADIENT (different from cards) */
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+/* wave effect */
+.chart-card::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+}
+
+
+.fixed-card {
+  height: 420px;
+}
+
+.fixed-card .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.fixed-card .card-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.fixed-card .card-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.fixed-card .card-body::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+.card {
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+
+//===============================untill this ======
+.wrapper {
+  width: 100%;
+  padding-inline: var(--cui-sidebar-occupy-start, 0) var(--cui-sidebar-occupy-end, 0);
+  will-change: auto;
+  @include transition(padding .15s);
+}
+.header-nav .dropdown-menu {
+  margin-top: 10px;
+  min-width: 200px;
+}
+
+
+.header > .container-fluid,
+.sidebar-header {
+  min-height: calc(4rem + 1px); // stylelint-disable-line function-disallowed-list
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav .nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+
+.header-nav .icon {
+  vertical-align: middle;
+    margin-top: -2px;
+}
+
+
+
+.sidebar-brand-full {
+  margin-left: 3px;
+}
+
+.sidebar-header {
+  .nav-underline-border {
+    --cui-nav-underline-border-link-padding-x: 1rem;
+    --cui-nav-underline-border-gap: 0;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: calc(4rem + 1px); // stylelint-disable-line function-disallowed-list
+  }
+}
+
+.sidebar-toggler {
+  margin-inline-start: auto;
+}
+
+.sidebar-narrow,
+.sidebar-narrow-unfoldable:not(:hover) {
+  .sidebar-toggler {
+    margin-inline-end: auto;
+  }
+}
+
+.header > .container-fluid + .container-fluid {
+  min-height: 3rem;
+}
+
+.footer {
+  min-height: calc(3rem + 1px); // stylelint-disable-line function-disallowed-list
+}
+
+@include color-mode(dark) {
+  body {
+    background-color: var(--cui-dark-bg-subtle);
+  }
+
+  .footer {
+    --cui-footer-bg: var(--cui-body-bg);
+  }
+}
