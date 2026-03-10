@@ -174,6 +174,7 @@ export default function Navbar() {
               className="btn btn-link nav-link d-flex align-items-center"
               onClick={() => setOpenProfile(!openProfile)}
             >
+onClick={() => {
               <div className="avatar avatar-md">
                 <img
                   className="avatar-img"
