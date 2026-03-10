@@ -167,20 +167,25 @@ export default function Navbar() {
   </ul>
 </li>
 
-
           {/* 👤 PROFILE */}
           <li className="nav-item dropdown">
             <button
-              className="btn btn-link nav-link d-flex align-items-center"
-              onClick={() => setOpenProfile(!openProfile)}
-            >
-onClick={() => {
+              className="btn btn-link nav-link d-flex align-items-center"  
+             onClick={() => {
+              setOpenProfile(!openProfile);
+               setOpenNotif(false);
+               setOpenMsg(false);
+                setOpenTheme(false);
+                 }}  
+                >
               <div className="avatar avatar-md">
                 <img
-                  className="avatar-img"
-                  src={user?.avatar || "https://i.pravatar.cc/40"}
-                  alt="user"
-                />
+                    className="avatar-img"
+                         src={user?.avatar || "https://i.pravatar.cc/40"}
+                         alt="user"
+                          width="40"
+                             height="40"
+                 />
               </div>
             </button>
 
@@ -191,8 +196,10 @@ onClick={() => {
                   {user?.name || "User"}
                 </div>
 
-                <a className="dropdown-item">Profile</a>
-                <a className="dropdown-item">Settings</a>
+              <button className="dropdown-item">Profile</button>
+               <button className="dropdown-item">Settings</button>
+                {/* <a className="dropdown-item">Profile</a>
+                <a className="dropdown-item">Settings</a> */}
 
                 <div className="dropdown-divider"></div>
 
