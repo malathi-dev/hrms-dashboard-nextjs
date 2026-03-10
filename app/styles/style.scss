@@ -5,6 +5,8 @@
 
 body {
   background-color: var(--cui-tertiary-bg);
+    overflow-x: hidden;
+
 }
 // mine like i did changes on add on =============
 
@@ -221,7 +223,6 @@ body {
   transform: translateY(-3px);
 }
 
-
 //===============================untill this ======
 .wrapper {
   width: 100%;
@@ -230,10 +231,11 @@ body {
   @include transition(padding .15s);
 }
 .header-nav .dropdown-menu {
-  margin-top: 10px;
+    top: calc(100% + 14px);   // space below icon (about 1 inch visual)
+  right: 0;
+  margin-top: 0 !important;
   min-width: 200px;
 }
-
 
 .header > .container-fluid,
 .sidebar-header {
@@ -249,6 +251,8 @@ body {
   display: flex;
   align-items: center;
 }
+.header-nav .nav-item.dropdown {
+  position: relative;
 }
 
 .header-nav .nav-link {
